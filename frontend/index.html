@@ -14,44 +14,47 @@
 </head>
 <body>
 
-      <header>
-        <h1><span class="red-text">RED</span> to <span class="black-text">BLACK</span></h1>
-        <h2 id="finance-status-bad">YOU'RE IN THE <span class="red-text">RED</span></h2>
-        <h2 id="finance-status-good">YOU'RE IN THE <span class="black-text">BLACK</span></h2>
-      </header>
+  <header>
+    <h1><span class="red-text">RED</span> to <span class="black-text">BLACK</span></h1>
+    <h2 id="finance-status-bad">YOU'RE IN THE <span class="red-text">RED</span></h2>
+    <h2 id="finance-status-good">YOU'RE IN THE <span class="black-text">BLACK</span></h2>
+  </header>
 
-      <main>
-        <div id="spacer-top"></div>
-        <h3>This Week</h3>
-        <h4>Leisure</h4>
-        <div id="container-progress-bar" class="container-progress">
-          <div id="progress-leisure" class="progress"></div>
-          <div id="progress-leisure-background" class="progress progress-background"></div>
-        </div>
-        <h4>Food</h4>
-        <div id="container-progress-leisure" class="container-progress">
-          <div id="progress-food" class="progress"></div>
-          <div id="progress-food-background" class="progress progress-background"></div>
-        </div>
-        <h4>Travel</h4>
-        <div id="container-progress-travel" class="container-progress">
-          <div id="progress-travel" class="progress"></div>
-          <div id="progress-travel-background" class="progress progress-background"></div>
-        </div>
-        <h4>Upcoming</h4>
-        <p>Your phone, rent and utility bills are on track.<br />
-          Expect £<span id="expected-out-text">...</span> to go out of your bank account this week.</p>
+  <!-- Each screen is a <main> element, which is transitioned using transitionToScreen(divID) -->
 
+  <main id="home">
+    <!-- <div id="spacer-top"></div> -->
+    <h3>This Week</h3>
+    <h4>Leisure</h4>
+    <div id="container-progress-bar" class="container-progress">
+      <div id="progress-leisure" class="progress"></div>
+      <div id="progress-leisure-background" class="progress progress-background"></div>
+    </div>
+    <h4>Food</h4>
+    <div id="container-progress-leisure" class="container-progress">
+      <div id="progress-food" class="progress"></div>
+      <div id="progress-food-background" class="progress progress-background"></div>
+    </div>
+    <h4>Travel</h4>
+    <div id="container-progress-travel" class="container-progress">
+      <div id="progress-travel" class="progress"></div>
+      <div id="progress-travel-background" class="progress progress-background"></div>
+    </div>
+    <h4>Upcoming</h4>
+    <p>Your phone, rent and utility bills are on track.<br />
+      Expect £<span id="expected-out-text">...</span> to go out of your bank account this week.</p>
+    <!-- <div id="spacer-bottom"></div> -->
+  </main>
 
-        <div id="spacer-bottom"></div>
-        </main>
+  <main id="savings" style="display:none;">
+    <h3>Savings</h3>
+  </main>
 
-        <footer>
-          <div id="savings-status">
-            <p id="savings-text">You can save £<span id="can-be-saved-text">...</span>.</p>
-            <p id="savings-more">Tap to learn more.</p>
-          </div>
-        </footer>
+  <footer id="savings-footer">
+    <div id="savings-status">
+      <p id="savings-text">You can save £<span id="can-be-saved-text">...</span>.</p>
+      <p id="savings-more">Tap to learn more.</p>
+    </div>    </footer>
 
 </body>
 </html>

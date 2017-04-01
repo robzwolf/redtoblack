@@ -1,5 +1,9 @@
 // script.js
 
+PROGRESS_BAR_DRAW_TIME = 800;
+PROGRESS_BAR_COLOUR = '#5A82A5';
+GLOBAL_SCREEN_TRANSITION_FADE_TIME = 300;
+
 var setGlobalGood = function()
 {
   $("html").removeClass("global-bad").addClass("global-good");
@@ -25,8 +29,8 @@ var getLatestData = function()
 var drawLeisureBar = function(value)
 {
   var leisurebar = new ProgressBar.Line('#progress-leisure', {
-        color: '#5A82A5',
-        duration: 800,
+        color: PROGRESS_BAR_COLOUR,
+        duration: PROGRESS_BAR_DRAW_TIME,
         easing: 'easeInOut'
   });
   leisurebar.animate(value);
@@ -36,8 +40,8 @@ var drawLeisureBar = function(value)
 var drawFoodBar = function(value)
 {
   var foodbar = new ProgressBar.Line('#progress-food', {
-        color: '#5A82A5',
-        duration: 800,
+        color: PROGRESS_BAR_COLOUR,
+        duration: PROGRESS_BAR_DRAW_TIME,
         easing: 'easeInOut'
   });
   foodbar.animate(value);
@@ -47,16 +51,23 @@ var drawFoodBar = function(value)
 var drawTravelBar = function(value)
 {
   var travelbar = new ProgressBar.Line('#progress-travel', {
-        color: '#5A82A5',
-        duration: 800,
+        color: PROGRESS_BAR_COLOUR,
+        duration: PROGRESS_BAR_DRAW_TIME,
         easing: 'easeInOut'
   });
   travelbar.animate(value);
 }
 
 
+var transitionToScreen = function(screen){
+  $("main").fadeOut(GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+  setTimeout(function(){$("main#" + screen).fadeIn(GLOBAL_SCREEN_TRANSITION_FADE_TIME);},GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+}
+
 
 $(document).ready(function(){
+
+  // Initial set-up and drawing progress bars
 
   var food = getFoodSpend();
   var leisure = getLeisureSpend();
@@ -79,5 +90,18 @@ $(document).ready(function(){
     $("#savings-text").html('You can save £<span id="can-be-saved-text">' + savingsStatus.canBeSaved + '</span>.');
   }
 
+
+  // Event listeners
+  $("#savings-footer").click(function(){
+    // $("main").fadeOut(300);
+    // $("#savings").fadeIn(300);
+    transitionToScreen("savings");
+  });
+
+  $("header").click(function(){
+    // $("main").fadeOut(300);
+    // $("#home").fadeIn(300);
+    transitionToScreen("home");
+  })
 
 });

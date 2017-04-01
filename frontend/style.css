@@ -53,6 +53,13 @@ header {
   height:76px;
 }
 
+main {
+  padding-top:138px;
+  padding-bottom:76px;
+  padding-left:6px;
+  padding-right:6px;
+}
+
 .progress {
   width: 70%;
   margin-left: auto;
@@ -103,9 +110,9 @@ header {
   display:none;
 }
 
-main {
+/*main {
     padding: 0 6px;
-}
+}*/
 
 #savings-more {
   font-size:12px;
