@@ -10,75 +10,48 @@
   <script src="data.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <style>
-    .progress {
-      /*height: 22px;*/
-    }
-
-        </style>
 
 </head>
 <body>
-  <!-- <header>
-    <h1><span style="color:#f00;">Red</span> to <span style="color:#fff;background-color:#3e4344">Black</span></h1>
-  </header>
-
-  <main> -->
-
-    <!-- <div id="content"> -->
 
       <header>
         <h1><span class="red-text">RED</span> to <span class="black-text">BLACK</span></h1>
-        <h2 id="finance-status">YOU'RE IN THE <span class="red-text">RED</span></h2>
+        <h2 id="finance-status-bad">YOU'RE IN THE <span class="red-text">RED</span></h2>
+        <h2 id="finance-status-good">YOU'RE IN THE <span class="black-text">BLACK</span></h2>
       </header>
 
       <main>
         <div id="spacer-top"></div>
         <h3>This Week</h3>
         <h4>Leisure</h4>
-        <div id="progress-leisure" class="progress"></div>
+        <div id="container-progress-bar" class="container-progress">
+          <div id="progress-leisure" class="progress"></div>
+          <div id="progress-leisure-background" class="progress progress-background"></div>
+        </div>
         <h4>Food</h4>
-        <div id="progress-food" class="progress"></div>
+        <div id="container-progress-leisure" class="container-progress">
+          <div id="progress-food" class="progress"></div>
+          <div id="progress-food-background" class="progress progress-background"></div>
+        </div>
+        <h4>Travel</h4>
+        <div id="container-progress-travel" class="container-progress">
+          <div id="progress-travel" class="progress"></div>
+          <div id="progress-travel-background" class="progress progress-background"></div>
+        </div>
         <h4>Upcoming</h4>
-        <p>Phone, rent and utilities are on track.<br />
-          Expect £x out this week.</p>
-        <p>Text</p>
-        <p>Text</p>
-        <p>Text</p>
-        <p>Text</p>
-        <p>Text</p>
-        <p>Text</p>
-        <p>Text</p>
-        <p>Text</p>
+        <p>Your phone, rent and utility bills are on track.<br />
+          Expect £<span id="expected-out-text">...</span> to go out of your bank account this week.</p>
+
 
         <div id="spacer-bottom"></div>
         </main>
 
         <footer>
-          <p>You can save £x.</p>
+          <div id="savings-status">
+            <p id="savings-text">You can save £<span id="can-be-saved-text">...</span>.</p>
+            <p id="savings-more">Tap to learn more.</p>
+          </div>
         </footer>
-
-      <!-- </div> -->
-
-    <!-- <p id="finance-status">You have £30 remaining.</p> -->
-    <!-- <div class="circle">
-      <p>Leisure</p>
-      <p>50/100</p>
-    </div>
-    <div class="circle">
-      <p>Food</p>
-      <p>60/100</p>
-    </div>
-    <div class="circle">
-      <p>Bills</p>
-      <p>250/300</p>
-    </div> -->
-
-    <!-- <div id="progress1" class="progress"></div>
-    <div id="progress2" class="progress"></div>
-    <div id="progress3" class="progress"></div> -->
-
-  <!-- </main> -->
 
 </body>
 </html>
