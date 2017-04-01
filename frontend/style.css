@@ -2,19 +2,19 @@
 
 body {
 /*background-color:aliceblue;*/
-  font-family:'Corbert-Regular',sans-serif;
+  font-family:'Arial',sans-serif;
   margin:0;
   padding:0;
 }
 
 h1 {
   text-align:center;
-  font-size:36px;
-  /*font-variant:small-caps;*/
+  font-size:36px;  /*font-variant:small-caps;*/
+
 }
 
 h1, h2, h3, h4 {
-  font-variant:small-caps;
+  /*font-variant:small-caps;*/
 }
 
 /*main {
@@ -83,7 +83,7 @@ td {
 }*/
 
 body {
-  background:#202020;
+  background:#000;
 }
 
 html, body {
@@ -98,7 +98,8 @@ body {
   /*position:absolute;*/
   /*font-family:verdana;*/
   text-align:center;
-  background:#303030;
+  /*background:#363A44;*/
+  background:#1C1D1F;
   color:#f0f0f0;
   padding:0;
   box-sizing:border-box;
@@ -107,8 +108,8 @@ body {
 }
 
 header, footer {
-  border:1px solid #000;
-  background:#171717;
+  /*border:1px solid #000;*/
+  background:#0F0F0F;
   position:fixed;
   width:100%;
 }
@@ -127,13 +128,13 @@ header {
   height:152px;
 }
 
-.global-good body {
-  background:#33443b;
+/*.global-good body {
+  background:#000;
 }
 
 .global-bad body {
-  background:#4c2c2e;
-}
+  background:#000;
+}*/
 
 .progress {
   width: 70%;
@@ -145,4 +146,14 @@ header {
 .progress > svg {
   height: 100%;
   display: block;
+}
+
+
+.red-text {
+  color:#f00;
+}
+
+.black-text {
+  color: #000000;
+  background-color: #FFF;
 }

@@ -25,7 +25,7 @@ var getLatestData = function()
 var drawLeisureBar = function(value)
 {
   var leisurebar = new ProgressBar.Line('#progress-leisure', {
-        color: '#82CCA9',
+        color: '#5A82A5',
         duration: 800,
         easing: 'easeInOut'
   });
@@ -38,7 +38,7 @@ var drawLeisureBar = function(value)
 var drawFoodBar = function(value)
 {
   var foodbar = new ProgressBar.Line('#progress-food', {
-        color: '#82CCA9',
+        color: '#5A82A5',
         duration: 800,
         easing: 'easeInOut'
   });
@@ -49,13 +49,13 @@ var drawFoodBar = function(value)
 $(document).ready(function(){
 
   // var leisurebar = new ProgressBar.Line('#progress-leisure', {
-  //       color: '#82CCA9',
+  //       color: '#5A82A5',
   //       duration: 800,
   //       easing: 'easeInOut'
   // });
   //
   // var foodbar = new ProgressBar.Line('#progress-food', {
-  //       color: '#82CCA9',
+  //       color: '#5A82A5',
   //       duration: 800,
   //       easing: 'easeInOut'
   // });
