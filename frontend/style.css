@@ -1,0 +1,148 @@
+/* style.css */
+
+body {
+/*background-color:aliceblue;*/
+  font-family:'Corbert-Regular',sans-serif;
+  margin:0;
+  padding:0;
+}
+
+h1 {
+  text-align:center;
+  font-size:36px;
+  /*font-variant:small-caps;*/
+}
+
+h1, h2, h3, h4 {
+  font-variant:small-caps;
+}
+
+/*main {
+  width: 80%;
+max-width: 500px;
+margin: auto;
+border: 1px solid #86b3e0;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+text-align: center;
+background-color: #bee1ff;
+box-shadow:4px 4px 10px rgba(0,0,0,.1);
+padding:10px 20px;
+}*/
+
+/*table {
+  width:100%;
+}
+
+td {
+  width:33.3%;
+}
+
+.circle {
+  border: 3px solid #5e9bc5;
+    width: 140px;
+    height: 140px;
+    margin: auto;
+    border-radius: 70px;
+    padding: 19px;
+    box-sizing: border-box;
+    margin-top:15px;
+}
+
+.circle:nth-child(0) {
+  margin-top:0;
+}
+
+#finance-status.good {
+  font-size: 30px;
+    border: 2px solid #56bd84;
+    padding: 10px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    background: #3fdc8c;
+}
+
+.global-good body {
+  background-color:#defbfa;
+}
+
+.global-bad body {
+  background-color:#4a2424;
+}
+
+.global-bad h1 {
+  color:#fff;
+}
+
+#finance-status {
+  margin: 0;
+    font-size: 20px;
+    padding: 5px;
+}*/
+
+body {
+  background:#202020;
+}
+
+html, body {
+  padding:0;
+  margin:0;
+}
+
+body {
+  margin:0;
+  /*width:100%;*/
+  /*height:100%;*/
+  /*position:absolute;*/
+  /*font-family:verdana;*/
+  text-align:center;
+  background:#303030;
+  color:#f0f0f0;
+  padding:0;
+  box-sizing:border-box;
+  border-left:1px solid #000;
+  border-right:1px solid #000;
+}
+
+header, footer {
+  border:1px solid #000;
+  background:#171717;
+  position:fixed;
+  width:100%;
+}
+
+footer {
+  /*position:fixed;*/
+  bottom:0;
+  /*width:100%;*/
+}
+
+header {
+  top:0;
+}
+
+#spacer {
+  height:152px;
+}
+
+.global-good body {
+  background:#33443b;
+}
+
+.global-bad body {
+  background:#4c2c2e;
+}
+
+.progress {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  height:16px;
+}
+
+.progress > svg {
+  height: 100%;
+  display: block;
+}
