@@ -125,9 +125,15 @@ header {
   top:0;
 }
 
-#spacer {
-  height:152px;
+#spacer-top {
+   height:152px;
+ }
+
+#spacer-bottom {
+  height:50px;
 }
+
+
 
 /*.global-good body {
   background:#000;
