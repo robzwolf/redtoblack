@@ -187,7 +187,7 @@ $(document).ready(function(){
   $("#next-3").click(function(){
     transitionToScreen("welcome-4");
   });
-  $("#next-3").click(function(){
+  $("#next-4").click(function(){
     exitSetupMode();
   });
 
