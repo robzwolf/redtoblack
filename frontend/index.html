@@ -3,11 +3,13 @@
 <head>
   <title>redtoblack</title>
   <link rel="stylesheet" href="corbert_regular_macroman/stylesheet.css" type="text/css" />
+  <link rel="stylesheet" href="rangeslider.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
   <script src="jquery-3.2.0.min.js"></script>
   <script src="progressbar.min.js"></script>
-  <script src="script.js"></script>
   <script src="data.js"></script>
+  <script src="rangeslider.min.js"></script>
+  <script src="script.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -48,8 +50,6 @@
 
           <input type="password" class="form-control" id="password" placeholder="Password">
           </fieldset>
-
-        <!-- <button type="submit" class="btn btn-default" onclick="transitionToScreen('welcome-3');return false;">Submit</button> -->
       </form>
     </div>
     <div class="lower-button">
@@ -60,6 +60,22 @@
   <main id="welcome-3">
     <div class="aligned-left-para">
       <h1>let's budget</h1>
+      <p>help us with how much you spend,</p>
+      <form>
+        <fieldset class="form-group">
+          <p>Leisure</p>
+          <input type="range" class="form-control" id="slider-leisure" min="0" max="100" step="1" value="30">
+          <p>Food</p>
+          <input type="range" class="form-control" id="slider-food" min="0" max="100" step="1" value="25">
+          <p>Travel</p>
+          <input type="range" class="form-control" id="slider-travel" min="0" max="100" step="1" value="60">
+          <p>Bills</p>
+          <input type="range" class="form-control" id="slider-bills" min="0" max="100" step="1" value="50">
+        </fieldset>
+      </form>
+    </div>
+    <div class="lower-button">
+      <span class="black-text" id="next-2">NEXT</span>
     </div>
   </main>
 
