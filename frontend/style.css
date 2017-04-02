@@ -132,3 +132,16 @@ main {
   margin: auto;
   font-size: 24px;
 }
+/* Setup screen formatting */
+.setup h2.finance-status {
+  display:none!important;
+}
+
+.setup footer {
+  display:none;
+}
+
+.setup main {
+  padding-top:90px;
+  padding-bottom:6px;
+}
