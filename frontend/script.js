@@ -108,5 +108,8 @@ $(document).ready(function(){
   $("header").click(function(){
     transitionToScreen("home");
   })
+  $("next-1").click(function(){
+    transitionToScreen("welcome-2");
+  })
 
 });
