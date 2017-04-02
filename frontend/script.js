@@ -18,11 +18,6 @@ var setGlobalBad = function()
   $("#finance-status").text("You are overspending.");
 }
 
-var getLatestData = function()
-{
-
-};
-
 /* Draw the leisure progress bar with a value on a scale from 0 to 1 */
 var drawLeisureBar = function(value,red)
 {
@@ -72,9 +67,11 @@ var enterSetupMode = function(){
 }
 
 var exitSetupMode = function(){
-  $("html").removeClass("setup");
+
+  //$("#welcome-4").fadeOut(GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+  setTimeout(function(){$("html").removeClass("setup");},GLOBAL_SCREEN_TRANSITION_FADE_TIME);
   transitionToScreen("home");
-  setTimeout(function(){drawHome()},GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+  setTimeout(function(){drawHome()},GLOBAL_SCREEN_TRANSITION_FADE_TIME*2);
 }
 
 
@@ -86,7 +83,7 @@ var drawHome = function()
   var leisure = getLeisureSpend();
   var travel = getTravelSpend();
   var bills = getBillsSpend();
-  var savingsStatus = getSavingsStatus();
+  // var savingsStatus = getSavingsStatus();
 
   /*var totalBillsExpectedOut = 0;
   $.each(bills,function(elem,value){
@@ -94,6 +91,22 @@ var drawHome = function()
   });*/
 
   $("#last-week-bills-amount-text").text(bills.spend);
+
+  leisure.spend = 0;
+  food.spend = 0;
+  travel.spend = 0;
+
+  for(i=0;i<getTransactions().food.length;i++){
+    food.spend += parseFloat(getTransactions().food[i].amount);
+  }
+
+  for(i=0;i<getTransactions().leisure.length;i++){
+    leisure.spend += parseFloat(getTransactions().leisure[i].amount);
+  }
+
+  for(i=0;i<getTransactions().travel.length;i++){
+    travel.spend += parseFloat(getTransactions().travel[i].amount);
+  }
 
   leisureProportion = leisure.spend / leisure.limit;
   foodProportion = food.spend / food.limit;
@@ -113,23 +126,26 @@ var drawHome = function()
   }
 
   if(travelProportion > 1){
-      setTimeout(function(){drawTravelBar(travelProportion,true);},PROGRESS_BAR_DRAW_TIME*.2);
+    setTimeout(function(){drawTravelBar(travelProportion,true);},PROGRESS_BAR_DRAW_TIME*.2);
   }else{
     setTimeout(function(){drawTravelBar(travelProportion);},PROGRESS_BAR_DRAW_TIME*.2);
   }
 
   if(getBlackOrRed() === "black"){
     setGlobalGood();
+    $("#savings-text").html('You can save <strong>£<span id="can-be-saved-text">' + json.amounttosave + '</span></strong>.');
+    $("#save-amount-span").text(json.amounttosave);
   }else{ // === "red"
     setGlobalBad();
-  }
-
-  if(savingsStatus.status === "black"){
-    $("#savings-text").html('You can save £<span id="can-be-saved-text">' + savingsStatus.canBeSaved + '</span>.');
-  }
-  else if(savingsStatus.status === "red"){
     $("#savings-text").html('You do not have enough spare income to save.');
   }
+
+  // if(savingsStatus.status === "black"){
+  //   $("#savings-text").html('You can save £<span id="can-be-saved-text">' + savingsStatus.canBeSaved + '</span>.');
+  // }
+  // else if(savingsStatus.status === "red"){
+  //   $("#savings-text").html('You do not have enough spare income to save.');
+  // }
 }
 
 var populateTransactions = function()
