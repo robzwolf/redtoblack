@@ -115,13 +115,19 @@ main {
   font-size:12px;
 }
 
-.aligned-left-para {
+.aligned-left-para h1 {
   text-align: left;
   padding-top: 60px;
   padding-left: 42px;
+  padding-right:42px;
   font: Arial;
   font-weight: bold;
   font-size: 32pt;
+}
+
+.aligned-left-para p {
+  font-size:20pt;
+  font-weight:normal;
 }
 
 .lower-button {
@@ -144,4 +150,14 @@ main {
 .setup main {
   padding-top:90px;
   padding-bottom:6px;
+}
+/*
+.setup main p:nth-child(1) {
+  margin-top:0;*/
+}
+
+.lower-button span.black-text {
+    padding: 2px 6px;
+    border: 1px solid #a0a0a0;
+    border-radius: 6px;
 }

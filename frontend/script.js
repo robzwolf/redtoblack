@@ -17,10 +17,6 @@ var setGlobalBad = function()
   $("#finance-status").text("You are overspending.");
 }
 
-$(document).ready(function(){
-
-});
-
 var getLatestData = function()
 {
 
@@ -69,9 +65,20 @@ var transitionToScreen = function(screen){
   }
 }
 
+var enterSetupMode = function(){
+  $("html").addClass("setup");
+  transitionToScreen("welcome-1");
+}
 
-$(document).ready(function(){
+var exitSetupMode = function(){
+  $("html").removeClass("setup");
+  transitionToScreen("home");
+  setTimeout(function(){drawHome()},GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+}
 
+
+var drawHome = function()
+{
   // Initial set-up and drawing progress bars
 
   var food = getFoodSpend();
@@ -97,6 +104,11 @@ $(document).ready(function(){
   else if(savingsStatus.status === "red"){
     $("#savings-text").html('You do not have enough spare income to save.');
   }
+}
+
+$(document).ready(function(){
+
+  enterSetupMode();
 
 
   // Event listeners
@@ -106,8 +118,9 @@ $(document).ready(function(){
   $("header").click(function(){
     transitionToScreen("home");
   })
-  $("next-1").click(function(){
+  $("#next-1").click(function(){
     transitionToScreen("welcome-2");
   })
+
 
 });
