@@ -5,10 +5,15 @@ ini_set('display_errors', 1);
 
 #FUNCTIONS
 #Connecting to LOCAL.
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "redtoblack";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "redtoblack";
+//
+$servername = "mysql.dur.ac.uk";
+$username = "shhn81";
+$password = "ma83drid";
+$dbname = "Xshhn81_redtoblack";
 
 try {
     $local_DBH = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -37,7 +42,7 @@ function registerUser($firstName,$lastName,$email,$password,$local_DBH) {
 //    TODO - Populate status code. Error handling.
 
     $status = "OK";
-    $output = ["status" => $status, "userID" => $userID];
+  //  $output = ["status" => $status, "userID" => $userID];
 
     return json_encode($output);
 
@@ -54,10 +59,10 @@ function updateDetails($userID,$rentAmount,$sfaAmount,$additionalAmount,$univers
 
     //If user exists update.
     if ($row) {
-        $SQL = "INSERT INTO userdetails (`userID`,`rentAmount`,`sfaAmount`,`additionalAmount`,`universityName`) VALUES ($userID, $rentAmount, $sfaAmount, $additionalAmount, $local_DBH->quote($universityName);";
+      $SQL = "UPDATE userdetails SET `rentAmount` = $rentAmount, `sfaAmount` = $sfaAmount, `additionalAmount` = $additionalAmount WHERE `userID` = $userID";
     } else {
         //If not, create insert.
-        $SQL = "UPDATE userdetails SET `rentAmount` = $rentAmount, `sfaAmount` = $sfaAmount, `additionalAmount` = $additionalAmount WHERE `userID` = $userID";
+      $SQL = "INSERT INTO userdetails (`userID`,`rentAmount`,`sfaAmount`,`additionalAmount`,`universityName`) VALUES ($userID, $rentAmount, $sfaAmount, $additionalAmount, $local_DBH->quote($universityName);";
     }
 
     $STH = $local_DBH->prepare($SQL);
@@ -65,7 +70,7 @@ function updateDetails($userID,$rentAmount,$sfaAmount,$additionalAmount,$univers
 
     //TODO - Return a status code.
     $status = "OK";
-    $output = ["status" => $status];
+    //$output = ["status" => $status];
 
     return json_encode($output);
 
@@ -87,7 +92,8 @@ function updateUI($userID ,$local_DBH){
     $transactions = $STH->fetchAll(PDO::FETCH_ASSOC);
 
     $status = "OK";
-    $output = ["status" => $status,"payload" => $financeData, "transactions" => $transactions];
+  //  $output = ["status" => $status,"payload" => $financeData, "transactions" => $transactions];
+    $output = array("status" => $status,"payload" => $financeData, "transactions" => $transactions);
     return json_encode($output);
 
 }
@@ -114,13 +120,32 @@ function weeklySpend($userID, $local_DBH){
       "spend" => $data["billsSpent"]
     );
 
+    $totalLimit = $food["limit"] + $leisure["limit"] + $travel["limit"] + $bills["limit"];
+    $totalSpent = $food["spend"] + $leisure["spend"] + $travel["spend"] + $bills["spend"];
+
+    if(($totalLimit - $totalSpent) < 0){
+        $blackOrRed = "red";
+  } else{
+        $blackOrRed = "black";
+  }
+
     $JSONOutput = array(
       "food" => $food,
       "leisure" => $leisure,
       "travel" => $travel,
-      "bills" => $bills
+      "bills" => $bills,
+      "blackOrRed" => $blackOrRed
     );
     return json_encode($JSONOutput);
+}
+
+function transactions($requestType,$local_DBH){
+    $SQL = "SELECT `merchantName`, `transactionDate`, `amount` FROM transactions  WHERE `activityID` = $requestType";
+    $STH = $local_DBH->prepare($SQL);
+    $STH->execute();
+    $transactionsArray = $STH->fetchAll(PDO::FETCH_ASSOC);
+    print(json_encode($transactionsArray));
+  //  print_r($transactionsArray);
 }
 
 switch ($_GET['action']) {
@@ -149,10 +174,17 @@ switch ($_GET['action']) {
         echo(updateUI($userID, $local_DBH));
         break;
 
-    case  'weeklySpend':
+    case 'weeklySpend':
         $userID = $_GET["userID"];
+        header("Access-Control-Allow-Origin: *");
         echo(weeklySpend($userID,$local_DBH));
         break;
+
+    case 'transactions':
+      $requestType = $_GET["requestType"];
+      header("Access-Control-Allow-Origin: *");
+      echo(transactions($requestType,$local_DBH));
+      break;
 }
 
 ?>
