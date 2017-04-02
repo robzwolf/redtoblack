@@ -6,7 +6,7 @@ body {
   padding:0;
 }
 
-h1 {
+header h1 {
   text-align:center;
   font-size:36px;
 }
@@ -195,4 +195,10 @@ form fieldset {
   margin: 0;
   border: 0;
   padding: .35em 0 .75em;
+}
+
+.setup main h1 {
+  text-align: left;
+    font-size: 32pt;
+    margin-top: 0;
 }
