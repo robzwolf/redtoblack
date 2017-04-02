@@ -119,7 +119,7 @@ var drawHome = function()
   }
 
   if(getBlackOrRed() === "black"){
-    setGlobalBad();
+    setGlobalGood();
   }else{ // === "red"
     setGlobalBad();
   }
