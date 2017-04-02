@@ -95,6 +95,10 @@ main {
   background-color: #FFF;
 }
 
+#finance-status-good, #finance-status-bad {
+  display:none;
+}
+
 .global-good #finance-status-good {
   display:block;
 }
@@ -235,4 +239,35 @@ form fieldset {
 #welcome-4 form fieldset p {
   margin-bottom: 0;
   margin-top: 2px;
+}
+
+.transactions table {
+  width: 80%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /*border-bottom: 1px solid #6b6b6b;*/
+}
+
+.transactions td {
+      border-bottom: 1px solid #6b6b6b;
+}
+
+.transactions td:nth-child(1) {
+  width:80%;
+  text-align:left;
+}
+
+.transactions td:nth-child(2) {
+  width:20%;
+  text-align:right;
+}
+
+.transactions h4 {
+  margin:auto;
+}
+
+.transactions .amount {
+  font-size:28px;
 }
