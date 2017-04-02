@@ -80,6 +80,7 @@ $(document).ready(function(){
   var travel = getTravelSpend();
   var bills = getBillsSpend();
   var savingsStatus = getSavingsStatus();
+  console.log(savingsStatus);
 
   var totalBillsExpectedOut = 0;
   $.each(bills,function(elem,value){
@@ -95,18 +96,16 @@ $(document).ready(function(){
   if(savingsStatus.status = "black"){
     $("#savings-text").html('You can save £<span id="can-be-saved-text">' + savingsStatus.canBeSaved + '</span>.');
   }
+  else if(savingsStatus.status = "red"){
+    $("#savings-text").html('You do not have enough spare income to save.');
+  }
 
 
   // Event listeners
   $("#savings-footer").click(function(){
-    // $("main").fadeOut(300);
-    // $("#savings").fadeIn(300);
     transitionToScreen("savings");
   });
-
   $("header").click(function(){
-    // $("main").fadeOut(300);
-    // $("#home").fadeIn(300);
     transitionToScreen("home");
   })
 

@@ -58,6 +58,7 @@ main {
   padding-bottom:76px;
   padding-left:6px;
   padding-right:6px;
+  display:none;
 }
 
 .progress {
@@ -109,10 +110,6 @@ main {
 .global-bad #finance-status-good {
   display:none;
 }
-
-/*main {
-    padding: 0 6px;
-}*/
 
 #savings-more {
   font-size:12px;
