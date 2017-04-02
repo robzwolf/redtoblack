@@ -117,10 +117,13 @@ $(document).ready(function(){
   });
   $("header").click(function(){
     transitionToScreen("home");
-  })
+  });
   $("#next-1").click(function(){
     transitionToScreen("welcome-2");
-  })
+  });
+  $("#next-2").click(function(){
+    transitionToScreen("welcome-3");
+  });
 
 
 });
