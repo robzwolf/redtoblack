@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="global-good setup">
+<html class="setup">
 <head>
   <title>redtoblack</title>
   <link rel="stylesheet" href="corbert_regular_macroman/stylesheet.css" type="text/css" />
-  <link rel="stylesheet" href="rangeslider.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="stylesheet" href="rangeslider.css" type="text/css" />
   <script src="jquery-3.2.0.min.js"></script>
   <script src="progressbar.min.js"></script>
   <script src="data.js"></script>
@@ -49,7 +49,7 @@
           <input type="email" class="form-control" id="email" placeholder="Email">
 
           <input type="password" class="form-control" id="password" placeholder="Password">
-          </fieldset>
+        </fieldset>
       </form>
     </div>
     <div class="lower-button">
@@ -82,37 +82,98 @@
   <main id="home">
     <!-- <div id="spacer-top"></div> -->
     <h3>This Week</h3>
-    <h4>Leisure</h4>
-    <div id="container-progress-bar" class="container-progress">
-      <div id="progress-leisure" class="progress"></div>
-      <div id="progress-leisure-background" class="progress progress-background"></div>
+    <div id="leisure-container">
+      <h4>Leisure</h4>
+      <div id="container-progress-bar" class="container-progress">
+        <div id="progress-leisure" class="progress"></div>
+        <div id="progress-leisure-background" class="progress progress-background"></div>
+      </div>
     </div>
-    <h4>Food</h4>
-    <div id="container-progress-leisure" class="container-progress">
-      <div id="progress-food" class="progress"></div>
-      <div id="progress-food-background" class="progress progress-background"></div>
+    <div id="food-container">
+      <h4>Groceries</h4>
+      <div id="container-progress-leisure" class="container-progress">
+        <div id="progress-food" class="progress"></div>
+        <div id="progress-food-background" class="progress progress-background"></div>
+      </div>
     </div>
-    <h4>Travel</h4>
-    <div id="container-progress-travel" class="container-progress">
-      <div id="progress-travel" class="progress"></div>
-      <div id="progress-travel-background" class="progress progress-background"></div>
+    <div id="travel-container">
+      <h4>Travel</h4>
+      <div id="container-progress-travel" class="container-progress">
+        <div id="progress-travel" class="progress"></div>
+        <div id="progress-travel-background" class="progress progress-background"></div>
+      </div>
     </div>
-    <h4>Upcoming</h4>
-    <p>Your phone, rent and utility bills are on track.<br />
-      Expect £<span id="expected-out-text">...</span> to go out of your bank account this week.</p>
-    <!-- <div id="spacer-bottom"></div> -->
-  </main>
+    <div id="upcoming-container">
+      <h4>Upcoming</h4>
+      <p>Your phone, rent and utility bills are on track.<br />
+        Last week, you spent £<span id="last-week-bills-amount-text">...</span> on bills.</p>
+        <!-- Expect £<span id="expected-out-text">...</span> to go out of your bank account this week.</p> -->
+        <!-- <div id="spacer-bottom"></div> -->
+      </div>
+    </main>
 
-  <main id="savings">
-    <h3>Savings</h3>
-  </main>
+    <main id="food-breakdown">
+      <h3>Groceries</h3>
+      <div id="food-transactions" class="transactions">
+        <article>
+          <table>
+            <tbody>
+              <!-- will populate from script.js -->
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </main>
 
-  <footer id="savings-footer">
-    <div id="savings-status">
-      <p id="savings-text">You can save £<span id="can-be-saved-text">...</span>.</p>
-      <p id="savings-more">Tap to learn more.</p>
-    </div>
-  </footer>
+    <main id="leisure-breakdown">
+      <h3>Leisure</h3>
+      <div id="leisure-transactions" class="transactions">
+        <article>
+          <table>
+            <tbody>
+              <!-- will populate from script.js -->
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </main>
 
-</body>
-</html>
+    <main id="travel-breakdown">
+      <h3>Travel</h3>
+      <div id="travel-transactions" class="transactions">
+        <article>
+          <table>
+            <tbody>
+              <!-- will populate from script.js -->
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </main>
+
+    <main id="bills-breakdown">
+      <h3>Bills</h3>
+      <div id="bills-transactions" class="transactions">
+        <article>
+          <table>
+            <tbody>
+              <!-- will populate from script.js -->
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </main>
+
+    <main id="savings">
+      <h3>Savings</h3>
+    </main>
+
+    <footer id="savings-footer">
+      <div id="savings-status">
+        <p id="savings-text">You can save £<span id="can-be-saved-text">...</span>.</p>
+        <p id="savings-more">Tap to learn more.</p>
+      </div>
+    </footer>
+
+  </body>
+  </html>
