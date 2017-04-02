@@ -46,8 +46,8 @@ header {
 }
 
 #spacer-top {
-   height:138px;
- }
+  height:138px;
+}
 
 #spacer-bottom {
   height:76px;
@@ -125,9 +125,9 @@ main {
   font-size: 32pt;
 }
 
-.aligned-left-para p {
+.aligned-left-para p, .aligned-left-para label {
   font-size:20pt;
-/*  font-weight:normal;
+  /*  font-weight:normal;
 */}
 
 .lower-button {
@@ -153,7 +153,46 @@ main {
 }
 
 .lower-button span {
-    padding: 2px 6px;
-    border: 1px solid #a0a0a0;
-    border-radius: 6px;
+  padding: 2px 6px;
+  border: 1px solid #a0a0a0;
+  border-radius: 6px;
+}
+
+.setup input, .setup button {
+  font-size: 20pt;
+  /*width: 100%;*/
+  background: #51516d;
+  color: white;
+  border: 1px solid #5e6163;
+  /*border-radius: 3px;*/
+  padding: 3px 6px;
+}
+
+.setup input:focus {
+  outline-color: #79c9d6;
+}
+
+.setup button {
+  width:auto;
+}
+
+form #email {
+  top: 1px;
+  position: relative;
+  margin: 0;
+  border-radius: 4px 4px 0 0;
+}
+
+form #password {
+  top: -8px;
+  position: relative;
+  margin: 0;
+  border-radius: 0 0 4px 4px;
+  border-top:0;
+}
+
+form fieldset {
+  margin: 0;
+  border: 0;
+  padding: .35em 0 .75em;
 }
