@@ -138,6 +138,30 @@ main {
   margin: auto;
   font-size: 24px;
 }
+
+.lower-button span {
+  padding: 2px 6px;
+  border: 1px solid #a0a0a0;
+  border-radius: 6px;
+}
+
+.add-button {
+/*  bottom: 30px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;*/
+  font-size: 24px;
+  margin-top: 20px;
+  margin-right: 5px;
+  text-align: right
+}
+
+.add-button span {
+  padding: 2px 6px;
+  border: 1px solid #a0a0a0;
+  border-radius: 6px;
+}
 /* Setup screen formatting */
 .setup h2.finance-status {
   display:none!important;
@@ -152,11 +176,7 @@ main {
   padding-bottom:6px;
 }
 
-.lower-button span {
-  padding: 2px 6px;
-  border: 1px solid #a0a0a0;
-  border-radius: 6px;
-}
+
 
 .setup input, .setup button {
   font-size: 20pt;
@@ -210,4 +230,9 @@ form fieldset {
 
 #welcome-3 form fieldset input[type="range"] {
   width: 100%;
+}
+
+#welcome-4 form fieldset p {
+  margin-bottom: 0;
+  margin-top: 2px;
 }
