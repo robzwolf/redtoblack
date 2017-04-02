@@ -56,6 +56,10 @@ var getBillsSpend = function()
   // }
 }
 
+var setBlackOrRed = function(colour){
+  json.blackOrRed = colour;
+}
+
 var getBlackOrRed = function()
 {
   return json.blackOrRed;
