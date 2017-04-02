@@ -35,6 +35,7 @@ function getRemainingBalance($userID, $local_DBH){
 }
 
 function setupGoals($userID, $local_DBH, $leftOverBalance){
+    $leftOverBalance = $leftOverBalance/30;
     $leisureTotal = 0.4 * $leftOverBalance;
     $travelTotal = 0.15 * $leftOverBalance;
     $foodTotal = 0.25 * $leftOverBalance;

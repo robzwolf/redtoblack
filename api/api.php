@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 #Connecting to LOCAL.
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "redtoblack";
 
 try {
@@ -92,6 +92,37 @@ function updateUI($userID ,$local_DBH){
 
 }
 
+function weeklySpend($userID, $local_DBH){
+    $SQL = "SELECT *  FROM activitybudget WHERE $userID LIMIT 1";
+    $STH = $local_DBH->prepare($SQL);
+    $STH->execute();
+    $data= $STH->fetch(PDO::FETCH_ASSOC);
+    $food = array(
+      "limit" => $data["foodTotal"],
+      "spend" => $data["foodSpent"]
+    );
+    $leisure = array(
+      "limit" => $data["leisureTotal"],
+      "spend" => $data["leisureSpent"]
+    );
+    $travel = array(
+      "limit" => $data["travelTotal"],
+      "spend" => $data["travelSpent"]
+    );
+    $bills = array(
+      "limit" => $data["billsTotal"],
+      "spend" => $data["billsSpent"]
+    );
+
+    $JSONOutput = array(
+      "food" => $food,
+      "leisure" => $leisure,
+      "travel" => $travel,
+      "bills" => $bills
+    );
+    return json_encode($JSONOutput);
+}
+
 switch ($_GET['action']) {
 
     case 'registerUser':
@@ -116,6 +147,11 @@ switch ($_GET['action']) {
     case 'updateUI':
         $userID = $_POST["userID"];
         echo(updateUI($userID, $local_DBH));
+        break;
+
+    case  'weeklySpend':
+        $userID = $_GET["userID"];
+        echo(weeklySpend($userID,$local_DBH));
         break;
 }
 
