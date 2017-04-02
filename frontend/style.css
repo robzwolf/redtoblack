@@ -114,3 +114,12 @@ main {
 #savings-more {
   font-size:12px;
 }
+
+.aligned-left-para {
+  text-align: left;
+  padding-top: 60px;
+  padding-left: 42px;
+  font: Arial;
+  font-weight: bold;
+  font-size: 32pt;
+}
