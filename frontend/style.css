@@ -123,3 +123,12 @@ main {
   font-weight: bold;
   font-size: 32pt;
 }
+
+.lower-button {
+  bottom: 30px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-size: 24px;
+}
