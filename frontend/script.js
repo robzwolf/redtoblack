@@ -129,6 +129,19 @@ $(document).ready(function(){
     $("#slider-bills").rangeslider();
     // $("input[type='range']").rangeslider();
   });
+  $("#next-3").click(function(){
+    transitionToScreen("welcome-4");
+  });
+  $("#next-3").click(function(){
+    exitSetupMode();
+  });
+
+
+
+  $("#add-income").click(function(){
+    // $('#income-form-group').insertAfter('<div class="income-group"><p>Income 2</p><input type="text" class="form-control" id="income-2-text" placeholder="name of income"><input type="text" class="form-control" id="income-2-value" placeholder="£..."></div>');
+    $('.income-group').clone().insertBefore('.add-button');
+  });
 
 
 });
