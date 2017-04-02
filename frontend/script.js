@@ -1,9 +1,9 @@
 // script.js
 
-PROGRESS_BAR_DRAW_TIME = 800;
-PROGRESS_BAR_COLOUR = '#5A82A5';
-GLOBAL_SCREEN_TRANSITION_FADE_TIME = 300;
-currentScreen = "home";
+const PROGRESS_BAR_DRAW_TIME = 800;
+const PROGRESS_BAR_COLOUR = '#5A82A5';
+const GLOBAL_SCREEN_TRANSITION_FADE_TIME = 300;
+let currentScreen = "home";
 
 var setGlobalGood = function()
 {
@@ -67,7 +67,6 @@ var transitionToScreen = function(screen){
     setTimeout(function(){$("main#" + screen).fadeIn(GLOBAL_SCREEN_TRANSITION_FADE_TIME);},GLOBAL_SCREEN_TRANSITION_FADE_TIME);
     currentScreen = screen;
   }
-
 }
 
 
@@ -80,8 +79,6 @@ $(document).ready(function(){
   var travel = getTravelSpend();
   var bills = getBillsSpend();
   var savingsStatus = getSavingsStatus();
-  console.log(savingsStatus);
-  console.log(savingsStatus.status);
 
   var totalBillsExpectedOut = 0;
   $.each(bills,function(elem,value){
@@ -89,8 +86,8 @@ $(document).ready(function(){
   });
 
   drawLeisureBar(leisure.spend/leisure.limit);
-  drawFoodBar(food.spend/food.limit);
-  drawTravelBar(travel.spend/travel.limit);
+  setTimeout(function(){drawFoodBar(food.spend/food.limit);},PROGRESS_BAR_DRAW_TIME*.1);
+  setTimeout(function(){drawTravelBar(travel.spend/travel.limit);},PROGRESS_BAR_DRAW_TIME*.2);
 
   $("#expected-out-text").text(totalBillsExpectedOut);
 
