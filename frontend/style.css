@@ -257,6 +257,7 @@ form fieldset {
 
 .transactions td {
       border-bottom: 1px solid #6b6b6b;
+      padding:3px 0;
 }
 
 .transactions td:nth-child(1) {
@@ -275,4 +276,13 @@ form fieldset {
 
 .transactions .amount {
   font-size:28px;
+}
+
+a, a:visited {
+  color:white;
+}
+
+a:hover {
+  text-decoration:none;
+  color:#f00;
 }
