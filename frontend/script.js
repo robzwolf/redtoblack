@@ -3,6 +3,7 @@
 PROGRESS_BAR_DRAW_TIME = 800;
 PROGRESS_BAR_COLOUR = '#5A82A5';
 GLOBAL_SCREEN_TRANSITION_FADE_TIME = 300;
+currentScreen = "home";
 
 var setGlobalGood = function()
 {
@@ -60,8 +61,13 @@ var drawTravelBar = function(value)
 
 
 var transitionToScreen = function(screen){
-  $("main").fadeOut(GLOBAL_SCREEN_TRANSITION_FADE_TIME);
-  setTimeout(function(){$("main#" + screen).fadeIn(GLOBAL_SCREEN_TRANSITION_FADE_TIME);},GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+  if(currentScreen != screen)
+  {
+    $("main").fadeOut(GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+    setTimeout(function(){$("main#" + screen).fadeIn(GLOBAL_SCREEN_TRANSITION_FADE_TIME);},GLOBAL_SCREEN_TRANSITION_FADE_TIME);
+    currentScreen = screen;
+  }
+
 }
 
 
