@@ -202,3 +202,12 @@ form fieldset {
     font-size: 32pt;
     margin-top: 0;
 }
+
+#welcome-3 form fieldset p {
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+#welcome-3 form fieldset input[type="range"] {
+  width: 100%;
+}
