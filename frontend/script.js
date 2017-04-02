@@ -177,11 +177,12 @@ $(document).ready(function(){
     transitionToScreen("welcome-2");
   });
   $("#next-2").click(function(){
-    $('#slider-leisure').rangeslider();
-    $('#slider-food').rangeslider();
-    $('#slider-travel').rangeslider();
-    $('#slider-bills').rangeslider();
     transitionToScreen("welcome-3");
+    $("#slider-leisure").rangeslider();
+    $("#slider-food").rangeslider();
+    $("#slider-travel").rangeslider();
+    $("#slider-bills").rangeslider();
+    // $("input[type='range']").rangeslider();
   });
   $("#leisure-container").click(function(){
     transitionToScreen("leisure-breakdown");
