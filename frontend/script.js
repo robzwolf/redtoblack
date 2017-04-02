@@ -163,6 +163,8 @@ var populateTransactions = function()
 
 $(document).ready(function(){
 
+  var incomeGroupCount = 1;
+
   enterSetupMode();
 
 
@@ -194,7 +196,13 @@ $(document).ready(function(){
 
   $("#add-income").click(function(){
     // $('#income-form-group').insertAfter('<div class="income-group"><p>Income 2</p><input type="text" class="form-control" id="income-2-text" placeholder="name of income"><input type="text" class="form-control" id="income-2-value" placeholder="£..."></div>');
-    $('.income-group').clone().insertBefore('.add-button');
+    incomeGroupCount += 1;
+    $('#income-group-1').clone()
+    .attr('id', 'income-group-'+incomeGroupCount)
+    .insertBefore('.add-button');
+    $('#income-group-'+incomeGroupCount+' p').html('Income '+incomeGroupCount);
+    $('#income-group-'+incomeGroupCount+' .income-name').val('');
+    $('#income-group-'+incomeGroupCount+' .income-value').val('');
   });
   $("#leisure-container").click(function(){
     transitionToScreen("leisure-breakdown");
