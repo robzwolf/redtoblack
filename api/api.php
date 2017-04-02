@@ -8,13 +8,12 @@ ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname_uni = "redtoblack";
+$dbname = "redtoblack";
 
 try {
-    $local_DBH = new PDO("mysql:host=$servername;dbname=$dbname_uni", $username, $password);
+    $local_DBH = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $local_DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//    echo "Connected successfully";
 }
 catch(PDOException $e)
 {
