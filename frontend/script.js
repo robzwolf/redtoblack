@@ -81,6 +81,7 @@ $(document).ready(function(){
   var bills = getBillsSpend();
   var savingsStatus = getSavingsStatus();
   console.log(savingsStatus);
+  console.log(savingsStatus.status);
 
   var totalBillsExpectedOut = 0;
   $.each(bills,function(elem,value){
@@ -93,10 +94,10 @@ $(document).ready(function(){
 
   $("#expected-out-text").text(totalBillsExpectedOut);
 
-  if(savingsStatus.status = "black"){
+  if(savingsStatus.status === "black"){
     $("#savings-text").html('You can save £<span id="can-be-saved-text">' + savingsStatus.canBeSaved + '</span>.');
   }
-  else if(savingsStatus.status = "red"){
+  else if(savingsStatus.status === "red"){
     $("#savings-text").html('You do not have enough spare income to save.');
   }
 
