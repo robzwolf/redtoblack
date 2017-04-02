@@ -184,13 +184,17 @@ main {
 
 .setup input, .setup button {
   font-size: 20pt;
-  /*width: 100%;*/
+  width: 100%;
   background: #51516d;
   color: white;
   border: 1px solid #5e6163;
   /*border-radius: 3px;*/
   padding: 3px 6px;
 }
+
+/*.setup input[type="email"], .setup input[type="password"] {
+  width:100%;
+}*/
 
 .setup input:focus {
   outline-color: #79c9d6;
@@ -234,6 +238,7 @@ form fieldset {
 
 #welcome-3 form fieldset input[type="range"] {
   width: 100%;
+  max-width:95%;
 }
 
 #welcome-4 form fieldset p {
