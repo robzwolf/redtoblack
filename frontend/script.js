@@ -138,25 +138,25 @@ var populateTransactions = function()
   // food
   for(var i=0;i<getTransactions().food.length;i++){
     console.log(getTransactions().food[i])
-    $("#food-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().food[i].merchantName + '</h4></div><div class="date">' + getTransactions().food[i].transactionDate + '</div></td><td><div class="amount">' + getTransactions().food[i].amount + '</div></td></tr>');
+    $("#food-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().food[i].merchantName + '</h4></div><div class="date">' + getTransactions().food[i].transactionDate + '</div></td><td><div class="amount">£' + parseFloat(getTransactions().food[i].amount).toFixed(2) + '</div></td></tr>');
   }
 
   // leisure
   for(var i=0;i<getTransactions().leisure.length;i++){
     console.log(getTransactions().leisure[i])
-    $("#leisure-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().leisure[i].merchantName + '</h4></div><div class="date">' + getTransactions().leisure[i].transactionDate + '</div></td><td><div class="amount">' + getTransactions().leisure[i].amount + '</div></td></tr>');
+    $("#leisure-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().leisure[i].merchantName + '</h4></div><div class="date">' + getTransactions().leisure[i].transactionDate + '</div></td><td><div class="amount">£' + parseFloat(getTransactions().leisure[i].amount).toFixed(2) + '</div></td></tr>');
   }
 
   // travel
   for(var i=0;i<getTransactions().travel.length;i++){
     console.log(getTransactions().travel[i])
-    $("#travel-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().travel[i].merchantName + '</h4></div><div class="date">' + getTransactions().travel[i].transactionDate + '</div></td><td><div class="amount">' + getTransactions().travel[i].amount + '</div></td></tr>');
+    $("#travel-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().travel[i].merchantName + '</h4></div><div class="date">' + getTransactions().travel[i].transactionDate + '</div></td><td><div class="amount">£' + parseFloat(getTransactions().travel[i].amount).toFixed(2) + '</div></td></tr>');
   }
 
   // bills
   for(var i=0;i<getTransactions().bills.length;i++){
     console.log(getTransactions().bills[i])
-    $("#bills-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().bills[i].merchantName + '</h4></div><div class="date">' + getTransactions().bills[i].transactionDate + '</div></td><td><div class="amount">' + getTransactions().bills[i].amount + '</div></td></tr>');
+    $("#bills-transactions tbody").append('<tr><td><div class="merchant"><h4>' + getTransactions().bills[i].merchantName + '</h4></div><div class="date">' + getTransactions().bills[i].transactionDate + '</div></td><td><div class="amount">£' + parseFloat(getTransactions().bills[i].amount).toFixed(2) + '</div></td></tr>');
   }
 
 }
