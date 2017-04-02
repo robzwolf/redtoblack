@@ -26,6 +26,9 @@ var drawLeisureBar = function(value,red)
         duration: PROGRESS_BAR_DRAW_TIME,
         easing: 'easeInOut'
   });
+  if(red){
+    setBlackOrRed("red");
+  }
   leisurebar.animate(red ? 1 : value);
 }
 
@@ -37,6 +40,9 @@ var drawFoodBar = function(value,red)
         duration: PROGRESS_BAR_DRAW_TIME,
         easing: 'easeInOut'
   });
+  if(red){
+    setBlackOrRed("red");
+  }
   foodbar.animate(red ? 1 : value);
 }
 
@@ -48,6 +54,9 @@ var drawTravelBar = function(value,red)
         duration: PROGRESS_BAR_DRAW_TIME,
         easing: 'easeInOut'
   });
+  if(red){
+    setBlackOrRed("red");
+  }
   travelbar.animate(red ? 1 : value);
 }
 
@@ -131,7 +140,8 @@ var drawHome = function()
     setTimeout(function(){drawTravelBar(travelProportion);},PROGRESS_BAR_DRAW_TIME*.2);
   }
 
-  if(getBlackOrRed() === "black"){
+  setTimeout(function(){
+    if(getBlackOrRed() === "black"){
     setGlobalGood();
     $("#savings-text").html('You can save <strong>£<span id="can-be-saved-text">' + json.amounttosave + '</span></strong>.');
     $("#save-amount-span").text(json.amounttosave);
@@ -139,6 +149,7 @@ var drawHome = function()
     setGlobalBad();
     $("#savings-text").html('You do not have enough spare income to save.');
   }
+},PROGRESS_BAR_DRAW_TIME*1.1);
 
   // if(savingsStatus.status === "black"){
   //   $("#savings-text").html('You can save £<span id="can-be-saved-text">' + savingsStatus.canBeSaved + '</span>.');
@@ -189,7 +200,12 @@ $(document).ready(function(){
     transitionToScreen("savings");
   });
   $("header").click(function(){
-    transitionToScreen("home");
+    if($("html").hasClass("setup")){
+      exitSetupMode();
+    }else{
+        transitionToScreen("home");
+    }
+
   });
   $("#next-1").click(function(){
     transitionToScreen("welcome-2");
