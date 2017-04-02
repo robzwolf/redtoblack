@@ -5,9 +5,9 @@ json = null;
 
 $.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=weeklySpend&userID=1",function(data){
   json = data;
+  console.log('json',json);
 });
 
-// THE FOLLOWING FUNCTIONS RETURN DUMMY DATA
 
 var getLeisureSpend = function()
 {
@@ -38,22 +38,27 @@ var getTravelSpend = function()
 
 var getBillsSpend = function()
 {
-  // return json.bills;
-  console.log("bills",json.bills);
-  return {
-    "phone": {
-      "expectedOut": 25,
-      "status": "okay"
-    },
-    "rent": {
-      "expectedOut": 90,
-      "status": "okay"
-    },
-    "utilities": {
-      "expectedOut": 12,
-      "status": "okay"
-    }
-  }
+  return json.bills;
+  // console.log("bills",json.bills);
+  // return {
+  //   "phone": {
+  //     "expectedOut": 25,
+  //     "status": "okay"
+  //   },
+  //   "rent": {
+  //     "expectedOut": 90,
+  //     "status": "okay"
+  //   },
+  //   "utilities": {
+  //     "expectedOut": 12,
+  //     "status": "okay"
+  //   }
+  // }
+}
+
+var getBlackOrRed = function()
+{
+  return json.blackOrRed;
 }
 
 var getSavingsStatus = function()
@@ -62,4 +67,48 @@ var getSavingsStatus = function()
     "status": "black",
     "canBeSaved": 20
   }
+}
+
+
+// Get transactions
+jsonTransactions = {};
+
+$.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=3",function(data){
+  jsonTransactions.food = data;
+});
+
+$.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=1",function(data){
+  jsonTransactions.leisure = data;
+});
+
+$.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=2",function(data){
+  jsonTransactions.travel = data;
+});
+
+$.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=4",function(data){
+  jsonTransactions.bills = data;
+});
+
+
+console.log('jsonTransactions',jsonTransactions);
+
+var getTransactions = function(){
+  if(jsonTransactions == {}){
+    $.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=3",function(data){
+      jsonTransactions.food = data;
+    });
+
+    $.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=1",function(data){
+      jsonTransactions.leisure = data;
+    });
+
+    $.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=2",function(data){
+      jsonTransactions.travel = data;
+    });
+
+    $.getJSON("http://community.dur.ac.uk/vivek.a.mehta/redtoblack/api.php?action=transactions&requestType=4",function(data){
+      jsonTransactions.bills = data;
+    });
+  }
+  return jsonTransactions;
 }
