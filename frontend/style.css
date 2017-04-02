@@ -151,12 +151,8 @@ main {
   padding-top:90px;
   padding-bottom:6px;
 }
-/*
-.setup main p:nth-child(1) {
-  margin-top:0;*/
-}
 
-.lower-button span.black-text {
+.lower-button span {
     padding: 2px 6px;
     border: 1px solid #a0a0a0;
     border-radius: 6px;
