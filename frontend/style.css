@@ -59,6 +59,8 @@ main {
   padding-left:6px;
   padding-right:6px;
   display:none;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .progress {

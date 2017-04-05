@@ -119,12 +119,16 @@ function weeklySpend($userID, $local_DBH){
         $blackOrRed = "black";
   }
 
+  $amountToSave = $totalLimit - $totalSpent;
+
+
     $JSONOutput = array(
       "food" => $food,
       "leisure" => $leisure,
       "travel" => $travel,
       "bills" => $bills,
-      "blackOrRed" => $blackOrRed
+      "blackOrRed" => $blackOrRed,
+      $amounttosave => $amountToSave;
     );
     return json_encode($JSONOutput);
 }
