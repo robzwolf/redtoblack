@@ -3,17 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-#FUNCTIONS
-#Connecting to LOCAL.
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "redtoblack";
-//
-$servername = "mysql.dur.ac.uk";
-$username = "shhn81";
-$password = "ma83drid";
-$dbname = "Xshhn81_redtoblack";
+include "db-config.php";
 
 try {
     $local_DBH = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
