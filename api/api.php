@@ -11,9 +11,9 @@ ini_set('display_errors', 1);
 // $dbname = "redtoblack";
 //
 $servername = "mysql.dur.ac.uk";
-$username = "***REMOVED***";
-$password = "***REMOVED***";
-$dbname = "X***REMOVED***_redtoblack";
+$username = "";
+$password = "";
+$dbname = "";
 
 try {
     $local_DBH = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
