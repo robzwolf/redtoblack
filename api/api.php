@@ -3,7 +3,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include "db-config.php";
+#FUNCTIONS
+#Connecting to LOCAL.
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "redtoblack";
+//
+$servername = "mysql.dur.ac.uk";
+$username = "";
+$password = "";
+$dbname = "";
 
 try {
     $local_DBH = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -119,7 +129,7 @@ function weeklySpend($userID, $local_DBH){
         $blackOrRed = "black";
   }
 
-  $amountToSave = $totalLimit - $totalSpent;
+    $amountToSave = $totalLimit - $totalSpent;
 
 
     $JSONOutput = array(
@@ -128,7 +138,7 @@ function weeklySpend($userID, $local_DBH){
       "travel" => $travel,
       "bills" => $bills,
       "blackOrRed" => $blackOrRed,
-      $amounttosave => $amountToSave;
+      "amounttosave" => $amountToSave
     );
     return json_encode($JSONOutput);
 }
